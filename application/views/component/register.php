@@ -6,110 +6,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration Form</title>
     <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-        .gradient-custom {
-            background: linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));
+        body {
+            background: linear-gradient(to bottom right, #f093fb, #f5576c);
+            min-height: 100vh;
         }
 
-        .card-registration .select-input.form-control[readonly]:not([disabled]) {
-            font-size: 1rem;
-            line-height: 2.15;
-            padding-left: .75em;
-            padding-right: .75em;
+        .card-registration {
+            border-radius: 15px;
+            background-color: #ffffff;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.15);
         }
 
-        .card-registration .select-arrow {
-            top: 13px;
+        /* Pendekkan form */
+        .form-control-lg {
+            padding: 6px 12px;
+            font-size: 14px;
+            border-radius: 8px;
+        }
+
+        .btn-custom {
+            background: #f5576c;
+            border: none;
+            font-size: 14px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .btn-custom:hover {
+            background: #d74457;
+        }
+
+        h3 {
+            font-weight: bold;
+            color: #333;
         }
     </style>
 </head>
 
 <body>
-    <section class="vh-100 gradient-custom">
-        <div class="container py-5 h-100">
-            <div class="row justify-content-center align-items-center h-100">
-                <div class="col-12 col-lg-9 col-xl-7">
-                    <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
-                        <div class="card-body p-4 p-md-5">
-                            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
-
-                            <form>
-                                <div class="row">
-                                    <!-- Email -->
-                                    <div class="col-md-6 mb-4">
-                                        <div class="form-outline">
-                                            <input type="email" id="email" class="form-control form-control-lg" />
-                                            <label class="form-label" for="email">Email</label>
-                                        </div>
-                                    </div>
-
-                                    <!-- Username -->
-                                    <div class="col-md-6 mb-4">
-                                        <div class="form-outline">
-                                            <input type="text" id="username" class="form-control form-control-lg" />
-                                            <label class="form-label" for="username">Username</label>
-                                        </div>
-                                    </div>
-
-                                    <!-- Password -->
-                                    <div class="col-md-6 mb-4">
-                                        <div class="form-outline">
-                                            <input type="password" id="password" class="form-control form-control-lg" />
-                                            <label class="form-label" for="password">Password</label>
-                                        </div>
-                                    </div>
-
-                                    <!-- Phone Number -->
-                                    <div class="col-md-6 mb-4 pb-2">
-                                        <div class="form-outline">
-                                            <input type="tel" id="phoneNumber" class="form-control form-control-lg" />
-                                            <label class="form-label" for="phoneNumber">Phone Number</label>
-                                        </div>
-                                    </div>
-
-                                    <!-- Birthday -->
-                                    <div class="col-md-6 mb-4 d-flex align-items-center">
-                                        <div class="form-outline w-100">
-                                            <input type="date" id="birthdayDate" class="form-control form-control-lg" />
-                                            <label class="form-label" for="birthdayDate">Birthday</label>
-                                        </div>
-                                    </div>
-
-                                    <!-- Country -->
-                                    <div class="col-md-6 mb-4 d-flex align-items-center">
-                                        <div class="form-outline w-100">
-                                            <input type="text" id="state" class="form-control form-control-lg" />
-                                            <label class="form-label" for="state">State</label>
-                                        </div>
-                                    </div>
-
-                                    <!-- Country -->
-                                    <div class="col-md-6 mb-4 d-flex align-items-center">
-                                        <div class="form-outline w-100">
-                                            <input type="text" id="city" class="form-control form-control-lg" />
-                                            <label class="form-label" for="city">City</label>
-                                        </div>
-                                    </div>
-
-                                    <!-- Country -->
-                                    <div class="col-md-6 mb-4 d-flex align-items-center">
-                                        <div class="form-outline w-100">
-                                            <input type="text" id="address" class="form-control form-control-lg" />
-                                            <label class="form-label" for="address">Address</label>
-                                        </div>
-                                    </div>
-
+    <section class="vh-100 d-flex justify-content-center align-items-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="card card-registration p-4">
+                        <h3 class="text-center mb-4">Registration Form</h3>
+                        <form>
+                            <!-- Full Name dan Username (2 kolom) -->
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <input type="text" id="fullname" class="form-control form-control-lg" placeholder="Full Name" />
                                 </div>
-
-                                <!-- Submit Button -->
-                                <div class="mt-4 pt-2">
-                                    <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
+                                <div class="col-md-6">
+                                    <input type="text" id="username" class="form-control form-control-lg" placeholder="Username" />
                                 </div>
-                            </form>
+                            </div>
 
-                        </div>
+                            <!-- Email (1 kolom penuh) -->
+                            <div class="mb-3">
+                                <input type="email" id="email" class="form-control form-control-lg" placeholder="Email" />
+                            </div>
+
+                            <!-- Password dan Phone Number (2 kolom) -->
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <input type="password" id="password" class="form-control form-control-lg" placeholder="Password" />
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" id="phonenumber" class="form-control form-control-lg" placeholder="Phone Number" />
+                                </div>
+                            </div>
+
+                            <!-- Birthday (1 kolom penuh) -->
+                            <div class="mb-3">
+                                <input type="date" id="birthday" class="form-control form-control-lg" />
+                            </div>
+
+                            <!-- State dan City (2 kolom) -->
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <input type="text" id="state" class="form-control form-control-lg" placeholder="State" />
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" id="city" class="form-control form-control-lg" placeholder="City" />
+                                </div>
+                            </div>
+
+                            <!-- Address (1 kolom penuh) -->
+                            <div class="mb-3">
+                                <input type="text" id="address" class="form-control form-control-lg" placeholder="Address" />
+                            </div>
+
+                            <!-- Tombol -->
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-custom btn-lg">Submit</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -117,7 +112,7 @@
     </section>
 
     <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
