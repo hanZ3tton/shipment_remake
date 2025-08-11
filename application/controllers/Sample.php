@@ -20,6 +20,7 @@ class Sample extends CI_Controller
     {
         // Load the login view
         $data['title'] = 'Dashboard';
+        $data['style'] = ''; // You can define styles specific to the login page
         $data['content'] = 'auth/login'; // Adjust the path as necessary
         $this->load->view('auth', $data);
     }
@@ -28,7 +29,7 @@ class Sample extends CI_Controller
     {
         // Load the register view
         $data['title'] = 'Register';
-        $data['style'] = 'auth/register-style';
+
         $data['content'] = 'auth/register'; // Adjust the path as necessary
         $this->load->view('auth', $data);
     }
@@ -37,5 +38,13 @@ class Sample extends CI_Controller
     {
         // Another method for demonstration
         echo "This is another method in the Sample controller.";
+    }
+
+    public function table()
+    {
+        // Load the table view
+        $data['title'] = 'Table Page'; // You can define styles specific to the table page
+        $data['content'] = 'component/table_user'; // Adjust the path as necessary
+        $this->load->view('component/table_user');
     }
 }
