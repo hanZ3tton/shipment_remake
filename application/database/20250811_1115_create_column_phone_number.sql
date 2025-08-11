@@ -1,0 +1,1 @@
+ALTER TABLE `user` ADD `phone_number` VARCHAR(15) NOT NULL AFTER `update_at`;
