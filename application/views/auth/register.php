@@ -1,71 +1,66 @@
-<body>
-    <section class="vh-100 d-flex justify-content-center align-items-center">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="card card-registration p-4">
-                        <h3 class="text-center mb-4">Registration Form</h3>
-                        <form>
-                            <!-- Full Name dan Username (2 kolom) -->
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <input type="text" id="fullname" class="form-control form-control-lg" placeholder="Full Name" />
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="text" id="username" class="form-control form-control-lg" placeholder="Username" />
-                                </div>
-                            </div>
+<h1>Register</h1>
 
-                            <!-- Email (1 kolom penuh) -->
-                            <div class="mb-3">
-                                <input type="email" id="email" class="form-control form-control-lg" placeholder="Email" />
-                            </div>
+<!-- Pesan error validasi -->
+<?php echo validation_errors(); ?>
 
-                            <!-- Password dan Phone Number (2 kolom) -->
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <input type="password" id="password" class="form-control form-control-lg" placeholder="Password" />
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="text" id="phonenumber" class="form-control form-control-lg" placeholder="Phone Number" />
-                                </div>
-                            </div>
+<!-- Flash message -->
+<?php if ($this->session->flashdata('error')): ?>
+    <p style="color:red;"><?php echo $this->session->flashdata('error'); ?></p>
+<?php endif; ?>
 
-                            <!-- Birthday (1 kolom penuh) -->
-                            <div class="mb-3">
-                                <input type="text" id="birthday" class="form-control form-control-lg"
-                                    placeholder="Birth Date"
-                                    onfocus="this.type='date'"
-                                    onblur="if(!this.value) this.type='text'" />
-                            </div>
-                            <!-- State dan City (2 kolom) -->
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <input type="text" id="state" class="form-control form-control-lg" placeholder="State" />
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="text" id="city" class="form-control form-control-lg" placeholder="City" />
-                                </div>
-                            </div>
+<?php if ($this->session->flashdata('success')): ?>
+    <p style="color:green;"><?php echo $this->session->flashdata('success'); ?></p>
+<?php endif; ?>
 
-                            <!-- Address (1 kolom penuh) -->
-                            <div class="mb-3">
-                                <input type="text" id="address" class="form-control form-control-lg" placeholder="Address" />
-                            </div>
+<?php echo form_open('auth/register'); ?>
 
-                            <!-- Tombol -->
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-custom btn-lg">Submit</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<p>
+    <label for="fullname">Full Name:</label><br>
+    <input type="text" name="fullname" value="<?php echo set_value('fullname'); ?>">
+</p>
 
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+<p>
+    <label for="username">Username:</label><br>
+    <input type="text" name="username" value="<?php echo set_value('username'); ?>">
+</p>
 
-</html>
+<p>
+    <label for="password">Password:</label><br>
+    <input type="password" name="password">
+</p>
+
+<p>
+    <label for="email">Email:</label><br>
+    <input type="text" name="email" value="<?php echo set_value('email'); ?>">
+</p>
+
+<p>
+    <label for="phoneNumber">Phone Number:</label><br>
+    <input type="text" name="phoneNumber" value="<?php echo set_value('phoneNumber'); ?>">
+</p>
+
+<p>
+    <label for="birthdayDate">Birthday:</label><br>
+    <input type="date" name="birthdayDate" value="<?php echo set_value('birthdayDate'); ?>">
+</p>
+
+<p>
+    <label for="state">State:</label><br>
+    <input type="text" name="state" value="<?php echo set_value('state'); ?>">
+</p>
+
+<p>
+    <label for="city">City:</label><br>
+    <input type="text" name="city" value="<?php echo set_value('city'); ?>">
+</p>
+
+<p>
+    <label for="address">Address:</label><br>
+    <textarea name="address"><?php echo set_value('address'); ?></textarea>
+</p>
+
+<p>
+    <button type="submit">Register</button>
+</p>
+
+<?php echo form_close(); ?>

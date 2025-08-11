@@ -1,7 +1,8 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class Dashboard extends CI_Controller {
+class Dashboard extends CI_Controller
+{
 
     public function __construct()
     {
@@ -15,13 +16,7 @@ class Dashboard extends CI_Controller {
 
     public function index()
     {
-        // Example: Get shipment statistics
-        $data['total_shipments'] = $this->Shipment_model->count_all();
-        $data['pending_shipments'] = $this->Shipment_model->count_by_status('pending');
-        $data['delivered_shipments'] = $this->Shipment_model->count_by_status('delivered');
-        $data['recent_shipments'] = $this->Shipment_model->get_recent(10);
-
         // Load dashboard view
-        $this->load->view('dashboard/index', $data);
+        $this->load->view('app/dashboard/index',);
     }
 }
