@@ -16,7 +16,9 @@ class Dashboard extends CI_Controller
 
     public function index()
     {
+        $data['title'] = 'Dashboard';
+        $data['content'] = 'app/dashboard/index'; // This should point to the view
         // Load dashboard view
-        $this->load->view('app/dashboard/index',);
+        $this->load->view('app', $data);
     }
 }
