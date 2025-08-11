@@ -1,5 +1,5 @@
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
+  `id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `user_name` varchar(128) NOT NULL,
   `password` varchar(128) NOT NULL,
   `full_name` varchar(128) NOT NULL,
@@ -12,8 +12,4 @@ CREATE TABLE `user` (
   `created_at` date NOT NULL,
   `update_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`id`);
-COMMIT;
 
