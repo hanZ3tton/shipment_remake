@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php $this->load->view('layout/head', $title) ?>
+<?php $this->load->view('layout/head', $title, $style) ?>
 
 <body id="page-top">
 
@@ -36,10 +36,6 @@
     </div>
     <!-- End of Page Wrapper -->
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
 
     <?php $this->load->view("layout/logout-modal") ?>
 
