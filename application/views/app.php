@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php $this->load->view('layout/head', $title, $style) ?>
+<?php $this->load->view('layout/head') ?>
 
 <body id="page-top">
 
