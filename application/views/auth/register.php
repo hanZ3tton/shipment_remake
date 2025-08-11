@@ -1,15 +1,3 @@
-<!-- Pesan error validasi -->
-<?php echo validation_errors(); ?>
-
-<!-- Flash message -->
-<?php if ($this->session->flashdata('error')): ?>
-    <p style="color:red;"><?php echo $this->session->flashdata('error'); ?></p>
-<?php endif; ?>
-
-<?php if ($this->session->flashdata('success')): ?>
-    <p style="color:green;"><?php echo $this->session->flashdata('success'); ?></p>
-<?php endif; ?>
-
 <div class="container vh-100 d-flex justify-content-center align-items-center">
     <div class="card o-hidden border-0 shadow-lg my-5 col-lg-6">
         <div class="card-body p-0">
@@ -21,7 +9,7 @@
                         </div>
 
                         <!-- Form dibuka sekali saja -->
-                        <form class="user" method="post" action="<?= base_url('auth/registration') ?>">
+                        <form class="user" method="post">
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="text" class="form-control form-control-user"

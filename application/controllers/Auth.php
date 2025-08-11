@@ -86,7 +86,7 @@ class Auth extends CI_Controller
 
             if ($this->Auth_model->register($userData)) {
                 $this->session->set_flashdata('success', 'Registration successful. Please login.');
-                redirect('auth/register');
+                redirect('auth/login');
             } else {
                 $this->session->set_flashdata('error', 'Registration failed. Please try again.');
                 $this->load->view('auth/register', $data);
