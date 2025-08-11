@@ -12,7 +12,7 @@ class Sample extends CI_Controller
     {
         // This method will be called when the controller is accessed
         $data['title'] = 'Sample Page';
-        $data['content'] = 'page/home';
+        $data['content'] = 'component/register'; // This should point to the view you want to load
         $this->load->view('app.php', $data);
     }
 
