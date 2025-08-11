@@ -10,8 +10,6 @@
 
     <style>
         .gradient-custom {
-            background: #f093fb;
-            background: -webkit-linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));
             background: linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));
         }
 
@@ -29,7 +27,6 @@
 </head>
 
 <body>
-
     <section class="vh-100 gradient-custom">
         <div class="container py-5 h-100">
             <div class="row justify-content-center align-items-center h-100">
@@ -37,85 +34,81 @@
                     <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
                         <div class="card-body p-4 p-md-5">
                             <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
+
                             <form>
-
                                 <div class="row">
+                                    <!-- Email -->
                                     <div class="col-md-6 mb-4">
                                         <div class="form-outline">
-                                            <input type="text" id="firstName" class="form-control form-control-lg" />
-                                            <label class="form-label" for="firstName">First Name</label>
+                                            <input type="email" id="email" class="form-control form-control-lg" />
+                                            <label class="form-label" for="email">Email</label>
                                         </div>
                                     </div>
 
+                                    <!-- Username -->
                                     <div class="col-md-6 mb-4">
                                         <div class="form-outline">
-                                            <input type="text" id="lastName" class="form-control form-control-lg" />
-                                            <label class="form-label" for="lastName">Last Name</label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-6 mb-4 d-flex align-items-center">
-                                        <div class="form-outline w-100">
-                                            <input type="text" class="form-control form-control-lg" id="birthdayDate" />
-                                            <label for="birthdayDate" class="form-label">Birthday</label>
+                                            <input type="text" id="username" class="form-control form-control-lg" />
+                                            <label class="form-label" for="username">Username</label>
                                         </div>
                                     </div>
 
+                                    <!-- Password -->
                                     <div class="col-md-6 mb-4">
-                                        <h6 class="mb-2 pb-1">Gender: </h6>
-
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="femaleGender" value="female" checked />
-                                            <label class="form-check-label" for="femaleGender">Female</label>
-                                        </div>
-
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="maleGender" value="male" />
-                                            <label class="form-check-label" for="maleGender">Male</label>
-                                        </div>
-
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="otherGender" value="other" />
-                                            <label class="form-check-label" for="otherGender">Other</label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-6 mb-4 pb-2">
                                         <div class="form-outline">
-                                            <input type="email" id="emailAddress" class="form-control form-control-lg" />
-                                            <label class="form-label" for="emailAddress">Email</label>
+                                            <input type="password" id="password" class="form-control form-control-lg" />
+                                            <label class="form-label" for="password">Password</label>
                                         </div>
                                     </div>
 
+                                    <!-- Phone Number -->
                                     <div class="col-md-6 mb-4 pb-2">
                                         <div class="form-outline">
                                             <input type="tel" id="phoneNumber" class="form-control form-control-lg" />
                                             <label class="form-label" for="phoneNumber">Phone Number</label>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="row">
-                                    <div class="col-12">
-                                        <select class="form-control form-control-lg">
-                                            <option value="1" disabled selected>Choose option</option>
-                                            <option value="2">Subject 1</option>
-                                            <option value="3">Subject 2</option>
-                                            <option value="4">Subject 3</option>
-                                        </select>
-                                        <label class="form-label select-label">Choose option</label>
+                                    <!-- Birthday -->
+                                    <div class="col-md-6 mb-4 d-flex align-items-center">
+                                        <div class="form-outline w-100">
+                                            <input type="date" id="birthdayDate" class="form-control form-control-lg" />
+                                            <label class="form-label" for="birthdayDate">Birthday</label>
+                                        </div>
                                     </div>
+
+                                    <!-- Country -->
+                                    <div class="col-md-6 mb-4 d-flex align-items-center">
+                                        <div class="form-outline w-100">
+                                            <input type="text" id="state" class="form-control form-control-lg" />
+                                            <label class="form-label" for="state">State</label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Country -->
+                                    <div class="col-md-6 mb-4 d-flex align-items-center">
+                                        <div class="form-outline w-100">
+                                            <input type="text" id="city" class="form-control form-control-lg" />
+                                            <label class="form-label" for="city">City</label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Country -->
+                                    <div class="col-md-6 mb-4 d-flex align-items-center">
+                                        <div class="form-outline w-100">
+                                            <input type="text" id="address" class="form-control form-control-lg" />
+                                            <label class="form-label" for="address">Address</label>
+                                        </div>
+                                    </div>
+
                                 </div>
 
+                                <!-- Submit Button -->
                                 <div class="mt-4 pt-2">
                                     <input class="btn btn-primary btn-lg" type="submit" value="Submit" />
                                 </div>
-
                             </form>
+
                         </div>
                     </div>
                 </div>
@@ -125,7 +118,6 @@
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 
 </html>
