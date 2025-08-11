@@ -21,8 +21,8 @@ class Auth extends CI_Controller
         $this->form_validation->set_rules('password', 'Password', 'required');
 
         if ($this->form_validation->run() === FALSE) {
-            $data['content'] = 'app/auth/login';
-            $this->load->view('app', $data);
+            $data['content'] = 'auth/login';
+            $this->load->view('guest', $data);
         } else {
             $username = $this->input->post('username');
             $password = $this->input->post('password');
@@ -41,7 +41,7 @@ class Auth extends CI_Controller
             } else {
                 $this->session->set_flashdata('error', 'Invalid username or password');
                 $data['content'] = 'auth/login';
-                $this->load->view('app', $data);
+                $this->load->view('guest', $data);
             }
         }
     }
@@ -62,7 +62,8 @@ class Auth extends CI_Controller
         $this->form_validation->set_rules('address', 'Address', 'required');
 
         if ($this->form_validation->run() === FALSE) {
-            $this->load->view('component/register', $data);
+            $data['content'] = 'auth/register';
+            $this->load->view('guest', $data);
         } else {
             $userData = [
                 'email'         => $this->input->post('email'),
@@ -80,10 +81,10 @@ class Auth extends CI_Controller
 
             if ($this->Auth_model->register($userData)) {
                 $this->session->set_flashdata('success', 'Registration successful. Please login.');
-                redirect('auth/login');
+                redirect('auth/register');
             } else {
                 $this->session->set_flashdata('error', 'Registration failed. Please try again.');
-                $this->load->view('component/register', $data);
+                $this->load->view('auth/register', $data);
             }
         }
     }

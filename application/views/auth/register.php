@@ -1,71 +1,29 @@
-<body>
-    <section class="vh-100 d-flex justify-content-center align-items-center">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-6">
-                    <div class="card card-registration p-4">
-                        <h3 class="text-center mb-4">Registration Form</h3>
-                        <form>
-                            <!-- Full Name dan Username (2 kolom) -->
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <input type="text" id="fullname" class="form-control form-control-lg" placeholder="Full Name" />
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="text" id="username" class="form-control form-control-lg" placeholder="Username" />
-                                </div>
-                            </div>
+<body class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4" style="width:360px;">
+        <h4 class="mb-3 text-center">Register</h4>
 
-                            <!-- Email (1 kolom penuh) -->
-                            <div class="mb-3">
-                                <input type="email" id="email" class="form-control form-control-lg" placeholder="Email" />
-                            </div>
+        <?php if ($this->session->flashdata('success')): ?>
+            <div class="alert alert-success"><?php echo $this->session->flashdata('success'); ?></div>
+        <?php endif; ?>
+        <?php if ($this->session->flashdata('error')): ?>
+            <div class="alert alert-danger"><?php echo $this->session->flashdata('error'); ?></div>
+        <?php endif; ?>
 
-                            <!-- Password dan Phone Number (2 kolom) -->
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <input type="password" id="password" class="form-control form-control-lg" placeholder="Password" />
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="text" id="phonenumber" class="form-control form-control-lg" placeholder="Phone Number" />
-                                </div>
-                            </div>
+        <?php echo validation_errors('<div class="alert alert-danger">', '</div>'); ?>
 
-                            <!-- Birthday (1 kolom penuh) -->
-                            <div class="mb-3">
-                                <input type="text" id="birthday" class="form-control form-control-lg"
-                                    placeholder="Birth Date"
-                                    onfocus="this.type='date'"
-                                    onblur="if(!this.value) this.type='text'" />
-                            </div>
-                            <!-- State dan City (2 kolom) -->
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <input type="text" id="state" class="form-control form-control-lg" placeholder="State" />
-                                </div>
-                                <div class="col-md-6">
-                                    <input type="text" id="city" class="form-control form-control-lg" placeholder="City" />
-                                </div>
-                            </div>
-
-                            <!-- Address (1 kolom penuh) -->
-                            <div class="mb-3">
-                                <input type="text" id="address" class="form-control form-control-lg" placeholder="Address" />
-                            </div>
-
-                            <!-- Tombol -->
-                            <div class="d-grid">
-                                <button type="submit" class="btn btn-custom btn-lg">Submit</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+        <form action="<?php echo site_url('auth/login_action'); ?>" method="post">
+            <div class="mb-3">
+                <input type="text" name="email" class="form-control" placeholder="Email or Username" value="<?php echo set_value('email'); ?>">
             </div>
-        </div>
-    </section>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+            <div class="mb-3">
+                <input type="password" name="password" class="form-control" placeholder="Password">
+            </div>
+            <div class="d-grid">
+                <button class="btn btn-primary">Login</button>
+            </div>
+            <div class="mt-2 text-center">
+                <a href="<?php echo site_url('auth/register'); ?>">Register</a>
+            </div>
+        </form>
+    </div>
 </body>
-
-</html>
