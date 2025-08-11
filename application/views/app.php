@@ -3,13 +3,46 @@
 
 <?php $this->load->view('layout/head', $title) ?>
 
-<body>
-    <?php $this->load->view('layout/header') ?>
-    <?php $this->load->view('layout/sidebar') ?>
+<body id="page-top">
 
-    <?php $this->load->view($content) ?>
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <?php $this->load->view('layout/sidebar') ?>
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <?php $this->load->view('layout/topbar') ?>
+
+                <!-- Begin Page Content -->
+                <?php $this->load->view($content) ?>
+
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <?php $this->load->view('layout/footer') ?>
+
+
+
+        </div>
+        <!-- End of Content Wrapper -->
+
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <?php $this->load->view("layout/logout-modal") ?>
+
     <?php $this->load->view('layout/script') ?>
 
 </body>
-
-</html>
