@@ -1,1 +1,0 @@
-hola pandejo, aqui tienes el codigo que me pediste

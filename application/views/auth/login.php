@@ -1,29 +1,25 @@
-<body class="d-flex justify-content-center align-items-center vh-100">
-    <div class="card p-4" style="width:360px;">
-        <h4 class="mb-3 text-center">Login</h4>
+<h2><?php echo $title; ?></h2>
 
-        <?php if ($this->session->flashdata('success')): ?>
-            <div class="alert alert-success"><?php echo $this->session->flashdata('success'); ?></div>
-        <?php endif; ?>
-        <?php if ($this->session->flashdata('error')): ?>
-            <div class="alert alert-danger"><?php echo $this->session->flashdata('error'); ?></div>
-        <?php endif; ?>
+<?php if ($this->session->flashdata('error')): ?>
+    <p style="color:red;"><?php echo $this->session->flashdata('error'); ?></p>
+<?php endif; ?>
 
-        <?php echo validation_errors('<div class="alert alert-danger">', '</div>'); ?>
+<?php echo validation_errors(); ?>
 
-        <form action="<?php echo site_url('auth/login_action'); ?>" method="post">
-            <div class="mb-3">
-                <input type="text" name="email" class="form-control" placeholder="Email or Username" value="<?php echo set_value('email'); ?>">
-            </div>
-            <div class="mb-3">
-                <input type="password" name="password" class="form-control" placeholder="Password">
-            </div>
-            <div class="d-grid">
-                <button class="btn btn-primary">Login</button>
-            </div>
-            <div class="mt-2 text-center">
-                <a href="<?php echo site_url('auth/register'); ?>">Register</a>
-            </div>
-        </form>
-    </div>
-</body>
+<form action="<?php echo site_url('auth/login'); ?>" method="post">
+    <p>
+        <label for="username">Username</label><br>
+        <input type="text" name="username" id="username" value="<?php echo set_value('username'); ?>">
+    </p>
+
+    <p>
+        <label for="password">Password</label><br>
+        <input type="password" name="password" id="password">
+    </p>
+
+    <p>
+        <button type="submit">Login</button>
+    </p>
+</form>
+
+<p>Belum punya akun? <a href="<?php echo site_url('auth/register'); ?>">Daftar di sini</a></p>
