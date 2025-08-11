@@ -16,6 +16,14 @@ class Sample extends CI_Controller
         $this->load->view('app', $data);
     }
 
+    public function dashboard()
+    {
+        // Load the dashboard view
+        $data['title'] = 'Dashboard';
+        $data['content'] = 'app/dashboard/dashboard'; // Adjust the path as necessary
+        $this->load->view('app', $data);
+    }
+
     public function another_method()
     {
         // Another method for demonstration
