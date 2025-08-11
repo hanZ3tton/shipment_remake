@@ -19,8 +19,8 @@ class Auth_model extends CI_Model
     public function login($username, $password)
     {
         // Fetch user by username
-        $this->db->where('username', $username);
-        $query = $this->db->get('users'); // Assuming your table is 'users'
+        $this->db->where('user_name', $username);
+        $query = $this->db->get('user'); // Assuming your table is 'users'
 
         if ($query->num_rows() == 1) {
             $user = $query->row();
@@ -31,5 +31,15 @@ class Auth_model extends CI_Model
             }
         }
         return false;
+    }
+
+    /**
+     * Register a new user
+     * @param array $data
+     * @return bool
+     */
+    public function register($data)
+    {
+        return $this->db->insert('user', $data);
     }
 }
