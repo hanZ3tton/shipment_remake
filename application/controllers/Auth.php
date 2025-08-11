@@ -62,9 +62,9 @@ class Auth extends CI_Controller
         $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]');
         $this->form_validation->set_rules('phoneNumber', 'Phone Number', 'required');
         $this->form_validation->set_rules('birthdayDate', 'Date of Birth', 'required');
-        $this->form_validation->set_rules('state', 'State', 'required');
-        $this->form_validation->set_rules('city', 'City', 'required');
-        $this->form_validation->set_rules('address', 'Address', 'required');
+        $this->form_validation->set_rules('state', 'State');
+        $this->form_validation->set_rules('city', 'City');
+        $this->form_validation->set_rules('address', 'Address');
 
         if ($this->form_validation->run() === FALSE) {
             $data['content'] = 'auth/register';
