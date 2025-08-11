@@ -91,15 +91,14 @@
                                         class="form-control form-control-user"
                                         id="birthdayDate"
                                         name="birthdayDate"
-                                        placeholder="Email Address" />
-                                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>') ?>
+                                        <?= form_error('email', '<small class="text-danger pl-3">', '</small>') ?>
+                                        </div>
                                 </div>
-                            </div>
-                            <button
-                                type="submit"
-                                class="btn btn-primary btn-user btn-block">
-                                Register Account
-                            </button>
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary btn-user btn-block">
+                                    Register Account
+                                </button>
                         </form>
                         <hr />
                         <div class="text-center">

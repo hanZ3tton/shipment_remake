@@ -15,10 +15,6 @@
 
     <!-- Custom styles for this template-->
     <link href="<?= base_url("assets/css/sb-admin-2.min.css") ?> " rel="stylesheet">
-<<<<<<< HEAD
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <?php $this->load->view($style) ?>
-=======
 
->>>>>>> 442c49b13985b51b6268d659bf3334de0553e07c
 </head>
