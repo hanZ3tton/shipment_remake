@@ -82,9 +82,11 @@
 
                             <!-- Birthday (1 kolom penuh) -->
                             <div class="mb-3">
-                                <input type="date" id="birthday" class="form-control form-control-lg" />
+                                <input type="text" id="birthday" class="form-control form-control-lg"
+                                    placeholder="Birth Date"
+                                    onfocus="this.type='date'"
+                                    onblur="if(!this.value) this.type='text'" />
                             </div>
-
                             <!-- State dan City (2 kolom) -->
                             <div class="row mb-3">
                                 <div class="col-md-6">
