@@ -1,5 +1,6 @@
-CREATE TABLE `user` (
-  `id` INT(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `img` varchar(128) NOT NULL,
   `user_name` varchar(128) NOT NULL,
   `password` varchar(128) NOT NULL,
   `full_name` varchar(128) NOT NULL,
