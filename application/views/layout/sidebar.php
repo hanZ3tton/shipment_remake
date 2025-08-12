@@ -109,7 +109,7 @@
 
       <!-- Nav Item - Add User -->
       <li class="nav-item">
-          <a class="nav-link" href="edit_user.php">
+          <a class="nav-link" href="<?= base_url('app/Dashboard/edituser') ?>">
               <i class="fas fa-user-plus"></i>
               <span>Edit User</span>
           </a>
