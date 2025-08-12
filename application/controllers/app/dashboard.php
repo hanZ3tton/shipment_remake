@@ -11,6 +11,7 @@ class Dashboard extends CI_Controller
         $this->load->model('Shipment_model');
         $this->load->helper('url');
         $this->load->library('session');
+        check_login(); // kalau belum login diarahkan ke /auth/login
         // Add authentication check if needed
     }
 
