@@ -93,12 +93,30 @@
             <span>Charts</span></a>
     </li>
 
+<<<<<<< HEAD
     <!-- Nav Item - Tables -->
     <li class="nav-item">
         <a class="nav-link" href="tables.html">
             <i class="fas fa-fw fa-table"></i>
             <span>Tables</span></a>
     </li>
+=======
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+          <a class="nav-link" href="tables.html">
+              <i class="fas fa-fw fa-table"></i>
+              <span>Tables</span>
+          </a>
+      </li>
+
+      <!-- Nav Item - Add User -->
+      <li class="nav-item">
+          <a class="nav-link" href="<?= base_url('app/Dashboard/edituser') ?>">
+              <i class="fas fa-user-plus"></i>
+              <span>Edit User</span>
+          </a>
+      </li>
+>>>>>>> db5276fe4241d54592d88eecd5b830fa775583e3
 
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">

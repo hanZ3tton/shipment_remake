@@ -7,16 +7,17 @@ class Auth extends CI_Controller
     {
         parent::__construct();
         $this->load->library(['session', 'form_validation']);
-        $this->load->model('Auth_model');
+        $this->load->model('User_model');
         $this->load->database();
         $this->load->helper('url');
+        $this->load->helper('auth');
     }
 
     public function login()
     {
+        check_already_login();
         $data['title'] = 'Login';
 
-        // Validation rules
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required');
 
@@ -27,21 +28,16 @@ class Auth extends CI_Controller
             $username = $this->input->post('username');
             $password = $this->input->post('password');
 
-            // Check credentials
-            $user = $this->Auth_model->login($username, $password);
+            $user = $this->User_model->login($username, $password);
 
             if ($user) {
-                // Set session
                 $this->session->set_userdata([
                     'user_id'   => $user->id,
                     'username'  => $user->user_name,
                     'logged_in' => TRUE
                 ]);
 
-                // Simpan flashdata untuk popup
                 $this->session->set_flashdata('success', 'Login berhasil! Selamat datang, ' . $user->full_name);
-
-                // Arahkan ke dashboard
                 redirect('app/dashboard');
             } else {
                 $this->session->set_flashdata('error', 'Username atau password salah');
@@ -53,6 +49,7 @@ class Auth extends CI_Controller
 
     public function register()
     {
+        check_already_login(); // kalau sudah login langsung ke dashboard
         $data['title'] = 'Register';
 
         // Validation rules
@@ -84,7 +81,7 @@ class Auth extends CI_Controller
                 'update_at'     => date('Y-m-d H:i:s')
             ];
 
-            if ($this->Auth_model->register($userData)) {
+            if ($this->User_model->register($userData)) {
                 $this->session->set_flashdata('success', 'Registration successful. Please login.');
                 redirect('auth/login');
             } else {
@@ -92,5 +89,13 @@ class Auth extends CI_Controller
                 $this->load->view('auth/register', $data);
             }
         }
+    }
+    public function logout()
+    {
+        // Hapus semua session
+        $this->session->sess_destroy();
+
+        // Redirect ke login
+        redirect('auth/login');
     }
 }
