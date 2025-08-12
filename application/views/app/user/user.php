@@ -90,7 +90,7 @@
                 <thead>
                     <tr>
                         <th><input type="checkbox" id="select-all"></th>
-                        <th>Transaction ID</th>
+                        <th>Username</th>
                         <th>Date</th>
                         <th>E-mail</th>
                         <th>Subscription</th>
