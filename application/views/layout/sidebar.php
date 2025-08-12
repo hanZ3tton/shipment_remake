@@ -103,7 +103,16 @@
       <li class="nav-item">
           <a class="nav-link" href="tables.html">
               <i class="fas fa-fw fa-table"></i>
-              <span>Tables</span></a>
+              <span>Tables</span>
+          </a>
+      </li>
+
+      <!-- Nav Item - Add User -->
+      <li class="nav-item">
+          <a class="nav-link" href="edit_user.php">
+              <i class="fas fa-user-plus"></i>
+              <span>Edit User</span>
+          </a>
       </li>
 
       <!-- Divider -->
