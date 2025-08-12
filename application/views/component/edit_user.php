@@ -5,107 +5,116 @@
     }
 
     .form-container {
-        max-width: 950px;
-        /* lebih besar lagi */
+        max-width: 900px;
         margin: 50px auto;
         background: #fff;
-        padding: 50px;
-        /* padding lebih besar */
-        border-radius: 25px;
-        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-    }
-
-    .form-container:hover {
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
     }
 
     .form-container h2 {
-        text-align: center;
-        margin-bottom: 35px;
-        font-weight: bold;
+        font-size: 26px;
         color: #4e73df;
-        font-size: 28px;
+        margin-bottom: 25px;
+        font-weight: bold;
+    }
+
+    .section-title {
+        font-size: 18px;
+        font-weight: bold;
+        color: #5a5c69;
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+    }
+
+    .section-title i {
+        margin-right: 8px;
+        color: #858796;
     }
 
     .form-row {
         display: flex;
-        gap: 20px;
-        /* jarak antar kolom lebih lebar */
-        margin-bottom: 20px;
+        gap: 15px;
+        margin-bottom: 15px;
     }
 
     .form-row input,
     .form-row textarea {
         flex: 1;
-        padding: 16px 20px;
-        /* input lebih tinggi */
-        border: 1px solid #ccc;
-        border-radius: 35px;
-        /* lebih bulat */
-        outline: none;
-        font-size: 16px;
-        background: #f9f9f9;
-        transition: all 0.2s ease-in-out;
+        padding: 10px 14px;
+        border: 1px solid #d1d3e2;
+        border-radius: 6px;
+        font-size: 14px;
+        background-color: #fff;
     }
 
     .form-row input:focus,
     .form-row textarea:focus {
+        outline: none;
         border-color: #4e73df;
-        background: #fff;
-        box-shadow: 0 0 10px rgba(78, 115, 223, 0.4);
+        box-shadow: 0 0 0 0.2rem rgba(78, 115, 223, 0.25);
     }
 
-    .form-row textarea {
-        border-radius: 20px;
+    textarea {
         resize: none;
-        min-height: 100px;
+        min-height: 80px;
     }
 
     .btn-submit {
-        width: 100%;
-        padding: 16px;
+        background-color: #4e73df;
         border: none;
-        background: linear-gradient(90deg, #4e73df, #224abe);
-        color: #fff;
-        font-size: 18px;
+        padding: 10px 20px;
+        border-radius: 6px;
+        color: white;
         font-weight: bold;
-        border-radius: 35px;
         cursor: pointer;
-        transition: all 0.3s ease;
+        font-size: 14px;
     }
 
     .btn-submit:hover {
-        background: linear-gradient(90deg, #224abe, #4e73df);
-        transform: translateY(-2px);
+        background-color: #2e59d9;
     }
 </style>
 
 <div class="form-container">
     <h2>Edit User</h2>
+
     <form action="<?php echo site_url('usercontroller/update_user'); ?>" method="post">
 
+        <div class="section-title">
+            <i class="fas fa-user"></i> User Details
+        </div>
+
         <div class="form-row">
-            <input type="text" name="username" placeholder="Username" required>
+            <input type="text" name="fullname" placeholder="Full Name" required>
             <input type="text" name="phone" placeholder="Phone Number" required>
         </div>
 
         <div class="form-row">
-            <input type="text" name="fullname" placeholder="Fullname" required>
-        </div>
-
-        <div class="form-row">
+            <input type="text" name="username" placeholder="Username" required>
             <input type="email" name="email" placeholder="Email Address" required>
-            <input type="date" name="birth_date" required>
         </div>
 
         <div class="form-row">
+            <input type="text" name="birth_date" placeholder="Birth Date"
+                onfocus="(this.type='date')"
+                onblur="if(!this.value) this.type='text'" required>
             <input type="text" name="state" placeholder="State" required>
-            <input type="text" name="city" placeholder="City" required>
+        </div>
+
+        <div class="section-title">
+            <i class="fas fa-map-marker-alt"></i> Address Details
         </div>
 
         <div class="form-row">
-            <textarea name="address" rows="3" placeholder="Address" required></textarea>
+            <input type="text" name="city" placeholder="City" required>
+            <input type="text" name="postal_code" placeholder="Postal Code" required>
+        </div>
+
+        <div class="form-row">
+            <textarea name="address" placeholder="Street, District, etc" required></textarea>
         </div>
 
         <button type="submit" class="btn-submit">Save Changes</button>
