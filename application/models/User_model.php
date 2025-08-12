@@ -20,7 +20,7 @@ class User_model extends CI_Model
     {
         // Fetch user by username
         $this->db->where('user_name', $username);
-        $query = $this->db->get('user'); // Assuming your table is 'users'
+        $query = $this->db->get('users'); // Assuming your table is 'users'
 
         if ($query->num_rows() == 1) {
             $user = $query->row();
