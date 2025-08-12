@@ -10,6 +10,6 @@ CREATE TABLE `user` (
   `city` varchar(128) DEFAULT NULL,
   `address` varchar(128) DEFAULT NULL,
   `created_at` date NOT NULL,
-  `update_at` datetime NOT NULL
+  `updated_at` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
