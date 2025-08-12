@@ -7,7 +7,7 @@ class Auth extends CI_Controller
     {
         parent::__construct();
         $this->load->library(['session', 'form_validation']);
-        $this->load->model('Auth_model');
+        $this->load->model('User_model');
         $this->load->database();
         $this->load->helper('url');
         $this->load->helper('auth');
@@ -28,7 +28,7 @@ class Auth extends CI_Controller
             $username = $this->input->post('username');
             $password = $this->input->post('password');
 
-            $user = $this->Auth_model->login($username, $password);
+            $user = $this->User_model->login($username, $password);
 
             if ($user) {
                 $this->session->set_userdata([
@@ -81,7 +81,7 @@ class Auth extends CI_Controller
                 'update_at'     => date('Y-m-d H:i:s')
             ];
 
-            if ($this->Auth_model->register($userData)) {
+            if ($this->User_model->register($userData)) {
                 $this->session->set_flashdata('success', 'Registration successful. Please login.');
                 redirect('auth/login');
             } else {

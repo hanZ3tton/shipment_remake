@@ -12,7 +12,7 @@ class Sample extends CI_Controller
     {
         // This method will be called when the controller is accessed
         $data['title'] = 'Sample Page';
-        $data['content'] = 'app/dashboard/dashboard'; // This should point to the view you want to load
+        $data['content'] = 'app/dashboard/index'; // This should point to the view you want to load
         $this->load->view('app', $data);
     }
 
@@ -46,5 +46,24 @@ class Sample extends CI_Controller
         $data['title'] = 'Table Page'; // You can define styles specific to the table page
         $data['content'] = 'component/table_user'; // Adjust the path as necessary
         $this->load->view('component/table_user');
+    }
+
+    public function form()
+    {
+        // Load the form view
+        $data['title'] = 'Form Page'; // You can define styles specific to the form page
+        $data['content'] = 'component/form_user'; // Adjust the path as necessary
+        $this->load->view('component/form_user');
+    }
+
+    public function user()
+    {
+        // Load the user view
+        $data['title'] = 'User Page'; // You can define styles specific to the user page
+
+        $data['style'] = 'app/user/index_style'; // You can define styles specific to the user page
+        $data['script'] = 'app/user/index_script'; // You can define scripts specific to the user page
+        $data['content'] = 'app/user/user'; // Adjust the path as necessary
+        $this->load->view('app', $data);
     }
 }
