@@ -11,7 +11,7 @@
                         <!-- Form dibuka sekali saja -->
                         <form class="user" method="post">
                             <div class="form-group row">
-                                <div class="col-sm-6 mb-3 mb-sm-0">
+                                <div class="col-sm-6 mb-3 mb-sm-0 pr-0">
                                     <input type="text" class="form-control form-control-user"
                                         id="username" name="username" placeholder="Username"
                                         value="<?= set_value('username'); ?>">
@@ -32,12 +32,25 @@
                                 <?= form_error('fullname', '<small class="text-danger pl-3">', '</small>') ?>
                             </div>
 
-                            <div class="form-group">
-                                <input type="email" class="form-control form-control-user"
-                                    id="email" name="email" placeholder="Email Address"
-                                    value="<?= set_value('email'); ?>">
-                                <?= form_error('email', '<small class="text-danger pl-3">', '</small>') ?>
+                            <div class="form-group row">
+                                <div class="col-sm-8 mb-3 mb-sm-0">
+                                    <input type="email" class="form-control form-control-user"
+                                        id="email" name="email" placeholder="Email Address"
+                                        value="<?= set_value('email'); ?>">
+                                    <?= form_error('email', '<small class="text-danger pl-3">', '</small>') ?>
+                                </div>
+                                <div class="col-sm-4 mb-3 mb-sm-0 pl-0">
+                                    <!-- Trik placeholder Birth Date -->
+                                    <input type="text" class="form-control form-control-user"
+                                        id="birthdayDate" name="birthdayDate"
+                                        placeholder="Birth Date"
+                                        onfocus="this.type='date'"
+                                        onblur="if(!this.value) this.type='text'"
+                                        value="<?= set_value('birthdayDate'); ?>">
+                                    <?= form_error('birthdayDate', '<small class="text-danger pl-3">', '</small>') ?>
+                                </div>
                             </div>
+
 
                             <div class="form-group row">
                                 <div class="col-sm-6 mb-3 mb-sm-0">
@@ -50,17 +63,6 @@
                                         id="password2" name="password2" placeholder="Confirm Password">
                                     <?= form_error('password2', '<small class="text-danger pl-3">', '</small>') ?>
                                 </div>
-                            </div>
-
-                            <div class="form-group">
-                                <!-- Trik placeholder Birth Date -->
-                                <input type="text" class="form-control form-control-user"
-                                    id="birthdayDate" name="birthdayDate"
-                                    placeholder="Birth Date"
-                                    onfocus="this.type='date'"
-                                    onblur="if(!this.value) this.type='text'"
-                                    value="<?= set_value('birthdayDate'); ?>">
-                                <?= form_error('birthdayDate', '<small class="text-danger pl-3">', '</small>') ?>
                             </div>
 
                             <button type="submit" class="btn btn-primary btn-user btn-block">
