@@ -53,7 +53,7 @@ class Auth extends CI_Controller
         $data['title'] = 'Register';
 
         // Validation rules
-        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[user.email]');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[users   .email]');
         $this->form_validation->set_rules('username', 'Username', 'required');
         $this->form_validation->set_rules('fullname', 'Full Name', 'required');
         $this->form_validation->set_rules('password', 'Password', 'required|min_length[6]');
@@ -78,7 +78,7 @@ class Auth extends CI_Controller
                 'city'          => $this->input->post('city'),
                 'address'       => $this->input->post('address'),
                 'created_at'    => date('Y-m-d H:i:s'),
-                'update_at'     => date('Y-m-d H:i:s')
+                'updated_at'     => date('Y-m-d H:i:s')
             ];
 
             if ($this->User_model->register($userData)) {
