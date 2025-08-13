@@ -23,7 +23,9 @@ class Shipment extends CI_Controller
 
     public function add()
     {
-        $data['title'] = 'Add Shipment';
-        $this->load->view('/component/shipment_form.php', $data);
+        $data['title'] = 'Edit User';
+        $data['content'] = 'component/shipment_form'; // This should point to the edit user view
+        // Load edit user view
+        $this->load->view('app', $data);
     }
 }
