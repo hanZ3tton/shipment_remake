@@ -20,4 +20,10 @@ class Shipment extends CI_Controller
         $data['shipments'] = $this->Shipment_model->get_all_shipments();
         $this->load->view('app/shipment/index', $data);
     }
+
+    public function add()
+    {
+        $data['title'] = 'Add Shipment';
+        $this->load->view('/component/shipment_form.php', $data);
+    }
 }
