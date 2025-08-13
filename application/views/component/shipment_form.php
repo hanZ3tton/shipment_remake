@@ -2,10 +2,10 @@
 <div class="container mt-4">
     <ul class="nav nav-tabs">
         <li class="nav-item">
-            <a class="nav-link active" href="#">Informasi Pengiriman</a>
+            <a class="nav-link active" href="<?= base_url('shipments/form') ?>">Informasi Pengiriman</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Informasi Inbound</a>
+            <a class="nav-link" href="<?= base_url('inbound/form') ?>">Informasi Inbound</a>
         </li>
     </ul>
 
