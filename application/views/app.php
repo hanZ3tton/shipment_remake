@@ -26,7 +26,8 @@
             </div>
             <!-- End of Main Content -->
 
-            <?php $this->load->view('layout/footer') ?>
+            <?php // $this->load->view('layout/footer') 
+            ?>
 
 
 

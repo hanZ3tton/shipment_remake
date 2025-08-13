@@ -23,7 +23,7 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
                         <h4 class="mb-4 font-weight-bold">Profile</h4>
-                        <a href="#" class="btn btn-primary btn-sm edit-profile">Edit Profile</a>
+                        <a href="#" class="btn btn-primary btn-sm edit-profile" data-toggle="modal" data-target="#modalEdit">Edit Profile</a>
                     </div>
 
                     <div class="mb-3">
@@ -80,9 +80,9 @@
             </div>
         </div>
 
-        <a href="#" class="button-add">Add New User</a>
-        <a href="#" class="button-edit">Edit User</a>
-        <a href="#" class="button-delete">Delete User</a>
+        <button class="button-add" data-toggle="modal" data-target="#modalTambah">Add New User</button>
+        <button class="button-edit" data-toggle="modal" data-target="#modalEdit" name="action" value="edit" id="btnEdit" style="display:none">Edit User</button>
+        <button class="button-delete" data-toggle="modal" data-target="#modalDelete" name="action" value="delete" id="btnDelete" style="display:none">Delete User</button>
 
 
         <div class="mt-3">
@@ -99,7 +99,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox" name="ids[]" class="select-user" value="1"></td>
                         <td>SR2451EW32</td>
                         <td>08.04.2021</td>
                         <td>name@shuffle.dev</td>
@@ -107,7 +107,7 @@
                         <td><span class="status-completed">Completed</span></td>
                     </tr>
                     <tr>
-                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox" name="ids[]" class="select-user" value="2"></td>
                         <td>SR2451EW32</td>
                         <td>08.04.2021</td>
                         <td>name@shuffle.dev</td>
@@ -115,7 +115,7 @@
                         <td><span class="status-canceled">Canceled</span></td>
                     </tr>
                     <tr>
-                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox" name="ids[]" class="select-user" value="3"></td>
                         <td>SR2451EW32</td>
                         <td>08.04.2021</td>
                         <td>name@shuffle.dev</td>
@@ -123,7 +123,7 @@
                         <td><span class="status-pending">Pending</span></td>
                     </tr>
                     <tr>
-                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox" name="ids[]" class="select-user" value="4"></td>
                         <td>SR2451EW32</td>
                         <td>08.04.2021</td>
                         <td>name@shuffle.dev</td>
@@ -131,7 +131,7 @@
                         <td><span class="status-completed">Completed</span></td>
                     </tr>
                     <tr>
-                        <td><input type="checkbox"></td>
+                        <td><input type="checkbox" name="ids[]" class="select-user" value="5"></td>
                         <td>SR2451EW32</td>
                         <td>08.04.2021</td>
                         <td>name@shuffle.dev</td>
@@ -142,5 +142,9 @@
             </table>
         </div>
     </div>
-
+    <?php
+    $this->load->view('app/user/modal_create');
+    $this->load->view('app/user/modal_edit');
+    $this->load->view('app/user/modal_delete');
+    ?>
 </div>
