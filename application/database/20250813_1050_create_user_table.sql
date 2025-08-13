@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS `users` (
     `id` INT NOT NULL AUTO_INCREMENT,
-    `img` VARCHAR(128) NOT NULL,
+    `img` VARCHAR(128) DEFAULT 'default.jpg',
     `user_name` VARCHAR(128) NOT NULL,
     `password` VARCHAR(128) NOT NULL,
     `full_name` VARCHAR(128) NOT NULL,
