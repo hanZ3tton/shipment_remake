@@ -46,33 +46,17 @@ class User_model extends CI_Model
     }
 
 
-    // Ambil semua data user
+
+
+    // Ambil semua user
     public function get_all()
     {
         return $this->db->get($this->table)->result();
     }
 
-    // Ambil satu data user berdasarkan ID
+    // Ambil satu user berdasarkan ID
     public function get_by_id($id)
     {
         return $this->db->get_where($this->table, ['id' => $id])->row();
-    }
-
-    // Tambah data user
-    public function insert($data)
-    {
-        return $this->db->insert($this->table, $data);
-    }
-
-    // Update data user
-    public function update($id, $data)
-    {
-        return $this->db->where('id', $id)->update($this->table, $data);
-    }
-
-    // Hapus data user
-    public function delete($id)
-    {
-        return $this->db->delete($this->table, ['id' => $id]);
     }
 }

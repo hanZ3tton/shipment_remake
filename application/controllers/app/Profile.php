@@ -14,8 +14,12 @@ class Profile extends CI_Controller
     public function index()
     {
         $data['title'] = 'Profile';
-        $data['users'] = $this->profile->get_all(); // ambil semua user
-        $data['content'] = 'app/user/index'; // This should point to the profile view
+        $data['users'] = $this->profile->get_all(); // ✅ pakai alias
+        $user_id = $this->session->userdata('user_id');
+        $data['user'] = $this->profile->get_by_id($user_id); // ✅ pakai alias
+        $data['content'] = 'app/user/index';
+        $data['style'] = 'app/user/index_style';
+        $data['script'] = 'app/user/index_script';
         $this->load->view('app', $data);
     }
 
