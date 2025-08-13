@@ -1,26 +1,44 @@
   <style>
-      .status-completed {
+      .button-add {
           color: white;
           background-color: #28a745;
           padding: 4px 8px;
           border-radius: 4px;
-          font-size: 0.85rem;
+          font-size: 1rem;
       }
 
-      .status-canceled {
+      .button-add:hover {
+          background-color: #218838;
+          color: white;
+          text-decoration: none;
+      }
+
+      .button-delete {
           color: white;
           background-color: #dc3545;
           padding: 4px 8px;
           border-radius: 4px;
-          font-size: 0.85rem;
+          font-size: 1rem;
       }
 
-      .status-pending {
+      .button-delete:hover {
+          background-color: #c82333;
+          color: white;
+          text-decoration: none;
+      }
+
+      .button-edit {
           color: white;
           background-color: #fd7e14;
           padding: 4px 8px;
           border-radius: 4px;
-          font-size: 0.85rem;
+          font-size: 1rem;
+      }
+
+      .button-edit:hover {
+          background-color: #e67e22;
+          color: white;
+          text-decoration: none;
       }
 
       .table thead th {
@@ -31,11 +49,44 @@
 
       .container-table {
           justify-self: center;
-          width: 90%;
-          margin: 20px 0;
+          width: 96%;
           padding: 20px;
           background-color: white;
           border-radius: 10px;
           box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .profile-info {
+          display: flex;
+          flex-direction: column;
+          margin-bottom: 10px;
+      }
+
+      .wrap {
+          display: flex;
+          margin-bottom: 10px;
+      }
+
+      .box {
+          width: 50%;
+      }
+
+      .profile-card {
+          max-width: 400px;
+          flex-shrink: 0;
+          margin-right: 20px;
+      }
+
+      .d-flex {
+          align-items: stretch;
+          /* semua anaknya full tinggi sama */
+      }
+
+      .card {
+          height: 300px;
+      }
+
+      .edit-profile {
+          max-height: fit-content;
       }
   </style>
