@@ -23,7 +23,7 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
                         <h4 class="mb-4 font-weight-bold">Profile</h4>
-                        <a href="#" class="btn btn-primary btn-sm edit-profile" data-toggle="modal" data-target="#modalEdit">Edit Profile</a>
+                        <a href="<?= base_url('user/edit') ?>" class="btn btn-primary btn-sm edit-profile" data-toggle="modal" data-target="#modalEdit">Edit Profile</a>
                     </div>
 
                     <div class="mb-3">
@@ -31,17 +31,17 @@
                             <div class="box">
                                 <div class="profile-info">
                                     <strong>State:</strong>
-                                    <span class="text-muted">Konoha</span>
+                                    <span class="text-muted"><?= $user['state']; ?></span>
                                 </div>
                                 <div class="profile-info">
                                     <strong>Email:</strong>
-                                    <span class="text-muted"> a@example.com</span>
+                                    <span class="text-muted"><?= $user->email; ?></span>
                                 </div>
                             </div>
                             <div>
                                 <div class="profile-info">
                                     <strong>Phone:</strong>
-                                    <span class="text-muted"> +123 456 7890</span>
+                                    <span class="text-muted"><?= $user->phone_number ?></span>
                                 </div>
                                 <div class="profile-info">
                                     <strong>Birthday:</strong>
@@ -80,71 +80,36 @@
             </div>
         </div>
 
-        <button class="button-add" data-toggle="modal" data-target="#modalTambah">Add New User</button>
-        <button class="button-edit" data-toggle="modal" data-target="#modalEdit" name="action" value="edit" id="btnEdit" style="display:none">Edit User</button>
-        <button class="button-delete" data-toggle="modal" data-target="#modalDelete" name="action" value="delete" id="btnDelete" style="display:none">Delete User</button>
+        <a href="user/add" class="button-add">Add New User</a>
+        <a href="user/edit" class="button-edit">Edit User</a>
+        <a href="user/delete" class="button-delete">Delete User</a>
 
 
         <div class="mt-3">
             <table class="table">
                 <thead>
                     <tr>
-                        <th><input type="checkbox" id="select-all"></th>
                         <th>Username</th>
-                        <th>Date</th>
+                        <th>Fullname</th>
                         <th>E-mail</th>
-                        <th>Subscription</th>
-                        <th>Status</th>
+                        <th>Phone Number</th>
+                        <th>Create at</th>
+                        <th>Update at</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><input type="checkbox" name="ids[]" class="select-user" value="1"></td>
-                        <td>SR2451EW32</td>
-                        <td>08.04.2021</td>
-                        <td>name@shuffle.dev</td>
-                        <td>Monthly</td>
-                        <td><span class="status-completed">Completed</span></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="ids[]" class="select-user" value="2"></td>
-                        <td>SR2451EW32</td>
-                        <td>08.04.2021</td>
-                        <td>name@shuffle.dev</td>
-                        <td>Monthly</td>
-                        <td><span class="status-canceled">Canceled</span></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="ids[]" class="select-user" value="3"></td>
-                        <td>SR2451EW32</td>
-                        <td>08.04.2021</td>
-                        <td>name@shuffle.dev</td>
-                        <td>Lifetime</td>
-                        <td><span class="status-pending">Pending</span></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="ids[]" class="select-user" value="4"></td>
-                        <td>SR2451EW32</td>
-                        <td>08.04.2021</td>
-                        <td>name@shuffle.dev</td>
-                        <td>Yearly</td>
-                        <td><span class="status-completed">Completed</span></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" name="ids[]" class="select-user" value="5"></td>
-                        <td>SR2451EW32</td>
-                        <td>08.04.2021</td>
-                        <td>name@shuffle.dev</td>
-                        <td>Monthly</td>
-                        <td><span class="status-completed">Completed</span></td>
-                    </tr>
+                    <?php foreach ($user as $key => $value) {
+                        echo "<tr>";
+                        echo "<td>{$value->username}</td>";
+                        echo "<td>{$value->fullname}</td>";
+                        echo "<td>{$value->email}</td>";
+                        echo "<td>{$value->phone_number}</td>";
+                        echo "<td>{$value->created_at}</td>";
+                        echo "<td>{$value->updated_at}</td>";
+                        echo "</tr>";
+                    } ?>
                 </tbody>
             </table>
         </div>
     </div>
-    <?php
-    $this->load->view('app/user/modal_create');
-    $this->load->view('app/user/modal_edit');
-    $this->load->view('app/user/modal_delete');
-    ?>
 </div>

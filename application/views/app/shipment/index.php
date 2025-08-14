@@ -1,107 +1,92 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 
 <head>
-    <title>Shipment List</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <style>
-        body {
-            background-color: #f7f9fc;
-        }
-
-        .card {
-            border-radius: 8px;
-            border: none;
-        }
-
-        .card-title {
-            font-weight: 600;
-            font-size: 1.2rem;
-        }
-
-        .table thead {
-            background-color: #3b7ddd;
-            color: white;
-        }
-
-        .table thead th {
-            border: none;
-        }
-
-        .btn-success {
-            background-color: #28a745;
-        }
-
-        .btn-warning {
-            background-color: #f0ad4e;
-            color: white;
-        }
-
-        .btn-danger {
-            background-color: #d9534f;
-        }
-
-        .search-box {
-            max-width: 250px;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <title>Shipment Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 </head>
 
-<body class="p-4">
+<body class="p-4 bg-light">
 
     <div class="card shadow-sm">
         <div class="card-body">
 
-            <div class="d-flex justify-content-between align-items-center mb-3">
-                <h5 class="card-title">Shipment Information</h5>
-                <div class="search-box input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <button class="btn btn-primary"><i class="bi bi-search"></i></button>
+            <?php if ($this->session->flashdata('success')): ?>
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <?= $this->session->flashdata('success') ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
+            <?php endif; ?>
+            <?php if ($this->session->flashdata('error')): ?>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <?= $this->session->flashdata('error') ?>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif; ?>
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h5 class="card-title mb-0">Shipment Information</h5>
             </div>
 
-            <div class="mb-3">
-                <button class="btn btn-success btn-sm">Add Shipment</button>
-                <button class="btn btn-warning btn-sm">Edit Shipment</button>
-                <button class="btn btn-danger btn-sm">Delete Shipment</button>
-            </div>
+            <form action="<?= base_url('app/shipment/process_action') ?>" method="post">
+                <div class="mb-3">
+                    <button type="button" class="btn btn-success btn-sm">Add Shipment</button>
+                    <button type="submit" name="edit_action" value="true" class="btn btn-warning btn-sm">Edit Shipment</button>
+                    <button type="submit" name="delete_action" value="true" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data yang dipilih?')">Delete Shipment</button>
+                </div>
 
-            <div class="table-responsive">
-                <table class="table align-middle">
-                    <thead>
-                        <tr>
-                            <th><input type="checkbox"></th>
-                            <th>ID</th>
-                            <th>Shipper</th>
-                            <th>Receiver</th>
-                            <th>Category</th>
-                            <th>Service</th>
-                            <th>Status</th>
-                            <th>Created</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($shipments as $s): ?>
+                <div class="table-responsive">
+                    <table class="table table-hover align-middle">
+                        <thead class="table-light">
                             <tr>
-                                <td><input type="checkbox"></td>
-                                <td><?= $s['id'] ?></td>
-                                <td><?= $s['shipper_name'] ?></td>
-                                <td><?= $s['receiver_name'] ?></td>
-                                <td><?= $s['category'] ?></td>
-                                <td><?= $s['service'] ?></td>
-                                <td><?= $s['status'] ?></td>
-                                <td><?= date('d.m.Y', strtotime($s['created_at'])) ?></td>
+                                <th width="5%"><input class="form-check-input" type="checkbox" id="select-all"></th>
+                                <th>ID</th>
+                                <th>Shipper</th>
+                                <th>Receiver</th>
+                                <th>Category</th>
+                                <th>Service</th>
+                                <th>Status</th>
+                                <th>Created</th>
                             </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-            </div>
-
+                        </thead>
+                        <tbody>
+                            <?php if (!empty($shipments)): ?>
+                                <?php foreach ($shipments as $s): ?>
+                                    <tr>
+                                        <td><input class="form-check-input" type="checkbox" name="shipment_ids[]" value="<?= $s['id'] ?>"></td>
+                                        <td><?= $s['id'] ?></td>
+                                        <td><?= htmlspecialchars($s['shipper_name']) ?></td>
+                                        <td><?= htmlspecialchars($s['receiver_name']) ?></td>
+                                        <td><?= htmlspecialchars($s['category']) ?></td>
+                                        <td><?= htmlspecialchars($s['service']) ?></td>
+                                        <td><span class="badge bg-primary"><?= htmlspecialchars($s['status']) ?></span></td>
+                                        <td><?= date('d M Y', strtotime($s['created_at'])) ?></td>
+                                    </tr>
+                                <?php endforeach; ?>
+                            <?php else: ?>
+                                <tr>
+                                    <td colspan="8" class="text-center">Tidak ada data</td>
+                                </tr>
+                            <?php endif; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </form>
         </div>
     </div>
 
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.getElementById('select-all').addEventListener('click', function(event) {
+            let checkboxes = document.querySelectorAll('input[name="shipment_ids[]"]');
+            for (let checkbox of checkboxes) {
+                checkbox.checked = event.target.checked;
+            }
+        });
+    </script>
 
 </body>
 

@@ -21,7 +21,7 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-between">
                         <h4 class="mb-4 font-weight-bold">Profile</h4>
-                        <a href="#" class="btn btn-primary btn-sm edit-profile">Edit Profile</a>
+                        <a href="<?= base_url('app/profile/update/' . $user->id); ?>" class="btn btn-primary btn-sm edit-profile">Edit Profile</a>
                     </div>
 
                     <div class="mb-3">
@@ -75,64 +75,44 @@
             </div>
         </div>
 
-        <a href="#" class="button-add">Add New User</a>
-        <a href="#" class="button-edit">Edit User</a>
-        <a href="#" class="button-delete">Delete User</a>
-
-
-        <div class="mt-3">
-            <table class="table">
+        <a href="<?= base_url('app/profile/create') ?>" class="button-add">Add New User</a>
+        <div class="mt-3 table-responsive">
+            <table class="table table-striped text-nowrap text-center">
                 <thead>
                     <tr>
-                        <th><input type="checkbox" id="select-all"></th>
-                        <th>Username</th>
-                        <th>Date</th>
-                        <th>E-mail</th>
-                        <th>Subscription</th>
-                        <th>Status</th>
+                        <th>No</th>
+                        <th class="w-25">Username</th>
+                        <th class="w-50">Full Name</th>
+                        <th class="w-50">E-mail</th>
+                        <th class="w-25">Phone Number</th>
+                        <th class="w-25">State</th>
+                        <th class="w-40">City</th>
+                        <th class="w-70">Address</th>
+                        <th class="w-25">Created at</th>
+                        <th class="w-25">Updated at</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>SR2451EW32</td>
-                        <td>08.04.2021</td>
-                        <td>name@shuffle.dev</td>
-                        <td>Monthly</td>
-                        <td><span class="status-completed">Completed</span></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>SR2451EW32</td>
-                        <td>08.04.2021</td>
-                        <td>name@shuffle.dev</td>
-                        <td>Monthly</td>
-                        <td><span class="status-canceled">Canceled</span></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>SR2451EW32</td>
-                        <td>08.04.2021</td>
-                        <td>name@shuffle.dev</td>
-                        <td>Lifetime</td>
-                        <td><span class="status-pending">Pending</span></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>SR2451EW32</td>
-                        <td>08.04.2021</td>
-                        <td>name@shuffle.dev</td>
-                        <td>Yearly</td>
-                        <td><span class="status-completed">Completed</span></td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox"></td>
-                        <td>SR2451EW32</td>
-                        <td>08.04.2021</td>
-                        <td>name@shuffle.dev</td>
-                        <td>Monthly</td>
-                        <td><span class="status-completed">Completed</span></td>
-                    </tr>
+                    <?php $number = 1;
+                    foreach ($users as $user): ?>
+                        <tr>
+                            <td><?= $number++ ?></td>
+                            <td><?= $user->user_name; ?></td>
+                            <td><?= $user->full_name ?></td>
+                            <td><?= $user->email; ?></td>
+                            <td><?= $user->phone_number; ?></td>
+                            <td><?= $user->state ?></td>
+                            <td><?= $user->city; ?></td>
+                            <td><?= $user->address; ?></td>
+                            <td><?= $user->created_at; ?></td>
+                            <td><?= $user->updated_at; ?></td>
+
+                            <td>
+                                <a href="<?= base_url('app/profile/update/' . $user->id); ?>" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="<?= base_url('app/profile/delete/' . $user->id); ?>" class="btn btn-danger btn-sm">Delete</a>
+                        </tr>
+                    <?php endforeach; ?>
                 </tbody>
             </table>
         </div>

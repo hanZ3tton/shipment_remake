@@ -97,8 +97,11 @@
 
       .form-container {
           max-width: 900px;
-          margin: 10px 20px;
-          padding: 5px;
+          margin: 50px auto;
+          background: #fff;
+          padding: 40px;
+          border-radius: 15px;
+          box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
       }
 
       .form-container h2 {
