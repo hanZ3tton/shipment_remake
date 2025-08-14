@@ -1,0 +1,1 @@
+ALTER TABLE `shipments` ADD `weight` DECIMAL(10,2) NOT NULL AFTER `category`;
