@@ -1,0 +1,1 @@
+ALTER TABLE `shipments` ADD `shipping_address` VARCHAR(128) NOT NULL AFTER `shipper_phone_number`;
