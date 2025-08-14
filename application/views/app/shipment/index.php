@@ -1,93 +1,79 @@
-<!DOCTYPE html>
-<html lang="id">
-
-<head>
-    <meta charset="UTF-8">
-    <title>Shipment Management</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
-</head>
-
-<body class="p-4 bg-light">
-
-    <div class="card shadow-sm">
-        <div class="card-body">
-
-            <?php if ($this->session->flashdata('success')): ?>
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <?= $this->session->flashdata('success') ?>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            <?php endif; ?>
-            <?php if ($this->session->flashdata('error')): ?>
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <?= $this->session->flashdata('error') ?>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            <?php endif; ?>
-
-            <div class="d-flex justify-content-between align-items-center mb-3">
-                <h5 class="card-title mb-0">Shipment Information</h5>
-            </div>
-
-            <form action="<?= base_url('app/shipment/process_action') ?>" method="post">
-                <div class="mb-3">
-                    <button type="button" class="btn btn-success btn-sm">Add Shipment</button>
-                    <button type="submit" name="edit_action" value="true" class="btn btn-warning btn-sm">Edit Shipment</button>
-                    <button type="submit" name="delete_action" value="true" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data yang dipilih?')">Delete Shipment</button>
-                </div>
-
-                <div class="table-responsive">
-                    <table class="table table-hover align-middle">
-                        <thead class="table-light">
-                            <tr>
-                                <th width="5%"><input class="form-check-input" type="checkbox" id="select-all"></th>
-                                <th>ID</th>
-                                <th>Shipper</th>
-                                <th>Receiver</th>
-                                <th>Category</th>
-                                <th>Service</th>
-                                <th>Status</th>
-                                <th>Created</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php if (!empty($shipments)): ?>
-                                <?php foreach ($shipments as $s): ?>
-                                    <tr>
-                                        <td><input class="form-check-input" type="checkbox" name="shipment_ids[]" value="<?= $s['id'] ?>"></td>
-                                        <td><?= $s['id'] ?></td>
-                                        <td><?= htmlspecialchars($s['shipper_name']) ?></td>
-                                        <td><?= htmlspecialchars($s['receiver_name']) ?></td>
-                                        <td><?= htmlspecialchars($s['category']) ?></td>
-                                        <td><?= htmlspecialchars($s['service']) ?></td>
-                                        <td><span class="badge bg-primary"><?= htmlspecialchars($s['status']) ?></span></td>
-                                        <td><?= date('d M Y', strtotime($s['created_at'])) ?></td>
-                                    </tr>
-                                <?php endforeach; ?>
-                            <?php else: ?>
-                                <tr>
-                                    <td colspan="8" class="text-center">Tidak ada data</td>
-                                </tr>
-                            <?php endif; ?>
-                        </tbody>
-                    </table>
+<div class="container-table">
+    <div class="row justify-content-between px-3">
+        <h4 class="mb-4 font-weight-bold">User Information</h4>
+        <div>
+            <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                <div class="input-group">
+                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
+                        aria-label="Search" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button">
+                            <i class="fas fa-search fa-sm"></i>
+                        </button>
+                    </div>
                 </div>
             </form>
         </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    <script>
-        document.getElementById('select-all').addEventListener('click', function(event) {
-            let checkboxes = document.querySelectorAll('input[name="shipment_ids[]"]');
-            for (let checkbox of checkboxes) {
-                checkbox.checked = event.target.checked;
-            }
-        });
-    </script>
-
-</body>
-
-</html>
+    <div class="mt-3 table-responsive">
+        <table class="table table-striped text-nowrap text-center">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th class="w-25">Status</th>
+                    <th class="w-50">Shipper Name</th>
+                    <th class="w-50">Shipper Phone Number</th>
+                    <th class="w-25">Receiver Name</th>
+                    <th class="w-25">Receiver Phone Number</th>
+                    <th class="w-40">Receiver State</th>
+                    <th class="w-70">Receiver City</th>
+                    <th class="w-25">Receiver Postal Code</th>
+                    <th class="w-25">Receiver Address</th>
+                    <th class="w-25">Service</th>
+                    <th class="w-25">Category</th>
+                    <th class="w-25">Weight</th>
+                    <th class="w-25">Length</th>
+                    <th class="w-25">Width</th>
+                    <th class="w-25">Height</th>
+                    <th class="w-25">Created At</th>
+                    <th class="w-25">Updated At</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php $n = 1;
+                foreach ($shipments as $s): ?>
+                    <tr>
+                        <td><?= $n++ ?></td>
+                        <td><?php if ($s['status'] == "INBOUND") {
+                                echo '<span class="badge badge-info">INBOUND</span>';
+                            } elseif ($s['status'] == "OUTBOUND") {
+                                echo '<span class="badge badge-warning">OUTBOUND</span>';
+                            } elseif ($s['status'] == "AP HOLD") {
+                                echo '<span class="badge badge-secondary">AP HOLD</span>';
+                            } elseif ($s['status'] == "VOID") {
+                                echo '<span class="badge badge-danger">VOID</span>';
+                            } elseif ($s['status'] == "COMPLETE DOCS") {
+                                echo '<span class="badge badge-success">COMPLETE DOCS</span>';
+                            } ?></td>
+                        <td><?= $s['shipper_name'] ?></td>
+                        <td><?= $s['shipper_phone_number'] ?></td>
+                        <td><?= $s['receiver_name'] ?></td>
+                        <td><?= $s['receiver_phone_number'] ?></td>
+                        <td><?= $s['receiver_state'] ?></td>
+                        <td><?= $s['receiver_city'] ?></td>
+                        <td><?= $s['receiver_postal_code'] ?></td>
+                        <td><?= $s['receiver_address'] ?></td>
+                        <td><?= $s['service'] ?></td>
+                        <td><?= $s['category'] ?></td>
+                        <td><?= $s['weight'] ?></td>
+                        <td><?= $s['length'] ?></td>
+                        <td><?= $s['width'] ?></td>
+                        <td><?= $s['height'] ?></td>
+                        <td><?= $s['created_at'] ?></td>
+                        <td><?= $s['updated_at'] ?> </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -16,7 +16,9 @@ class Shipment extends CI_Controller
         $data['shipments'] = $this->Shipment_model->get_all();
 
         // Load view dengan data
-        $data['content'] = 'app/shipment/index'; // This should point to the shipment index view                                                   
+        $data['content'] = 'app/shipment/index'; // This should point to the shipment index view 
+        $data['title'] = 'Shipment List';
+        $data['style'] = 'app/shipment/index_style'; // You can define styles specific to the shipment page                                                  
         $this->load->view('app', $data);
     }
 
