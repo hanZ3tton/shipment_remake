@@ -32,7 +32,7 @@
 
             <form action="<?= base_url('app/shipment/process_action') ?>" method="post">
                 <div class="mb-3">
-                    <button type="button" name="add_action" class="btn btn-success btn-sm">Add Shipment</button>
+                    <button type="button" class="btn btn-success btn-sm">Add Shipment</button>
                     <button type="submit" name="edit_action" value="true" class="btn btn-warning btn-sm">Edit Shipment</button>
                     <button type="submit" name="delete_action" value="true" class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus data yang dipilih?')">Delete Shipment</button>
                 </div>
