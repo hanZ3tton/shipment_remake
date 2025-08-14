@@ -3,31 +3,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class User_model extends CI_Model
 {
-    private $table = 'users'; // ganti jadi ini
+    private $table = 'users';
 
     public function __construct()
     {
         parent::__construct();
-        // Load database if not autoloaded
         $this->load->database();
     }
 
-    /**
-     * Login user by username and password
-     * @param string $username
-     * @param string $password
-     * @return object|bool User object if found, FALSE otherwise
-     */
     public function login($username, $password)
     {
-        // Fetch user by username
         $this->db->where('user_name', $username);
-        $query = $this->db->get('users'); // Assuming your table is 'users'
+        $query = $this->db->get($this->table);
 
         if ($query->num_rows() == 1) {
             $user = $query->row();
-
-            // Verify password (assuming password is hashed)
             if (password_verify($password, $user->password)) {
                 return $user;
             }
@@ -35,33 +25,33 @@ class User_model extends CI_Model
         return false;
     }
 
-    /**
-     * Register a new user
-     * @param array $data
-     * @return bool
-     */
-    public function register($data)
+    public function get_user_by_id($id)
     {
-        return $this->db->insert('users', $data);
+        $query = $this->db->get_where($this->table, array('id' => $id));
+        return $query->row();
     }
 
-
-
-
-    // Ambil semua user
-    public function get_all()
+    public function update_user($id, $data)
     {
-        return $this->db->get($this->table)->result();
+        $this->db->where('id', $id);
+        return $this->db->update($this->table, $data);
     }
 
-    // Ambil satu user berdasarkan ID
-    public function get_by_id($id)
+    public function get_all_users_except($id)
     {
-        return $this->db->get_where($this->table, ['id' => $id])->row();
+        $this->db->where('id !=', $id);
+        $query = $this->db->get($this->table);
+        return $query->result();
     }
 
-    public function insert($data)
+    public function create_user($data)
     {
         return $this->db->insert($this->table, $data);
+    }
+
+    public function delete_user($id)
+    {
+        $this->db->where('id', $id);
+        return $this->db->delete($this->table);
     }
 }

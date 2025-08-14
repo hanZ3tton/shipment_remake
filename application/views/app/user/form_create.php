@@ -3,7 +3,7 @@
     <div class="form-header">
         <h2>Add New User</h2>
     </div>
-    <form action="<?php echo site_url('usercontroller/update_user'); ?>" method="post">
+    <form action="<?php echo site_url('app/profile/'); ?>" method="post">
 
         <div class="section-title">
             <i class="fas fa-user"></i> User Details
