@@ -112,7 +112,7 @@
     <div class="tab-content" id="formTabsContent">
         <!-- Form Shipment -->
         <div class="tab-pane fade show active" id="shipment" role="tabpanel">
-            <form action="<?= base_url('shipments/save') ?>" method="post" class="needs-validation" novalidate>
+            <form action="<?= base_url('app/shipments/save') ?>" method="post" class="needs-validation" novalidate>
                 <!-- Informasi Pengirim -->
                 <div class="section-title">
                     <i class="bi bi-person-fill"></i> Informasi Pengirim
