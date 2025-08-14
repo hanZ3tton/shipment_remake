@@ -1,6 +1,6 @@
 <div class="container-table">
     <div class="row justify-content-between px-3">
-        <h4 class="mb-4 font-weight-bold">All Inbound</h4>
+        <h4 class="mb-4 font-weight-bold">Inbound</h4>
         <div>
             <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                 <div class="input-group">
@@ -15,25 +15,21 @@
             </form>
         </div>
     </div>
+
+    <a href="<?= base_url('app/profile/create') ?>" class="button-add font-weight-bold">Add New User</a>
     <div class="mt-3 table-responsive">
         <table class="table table-striped text-nowrap text-center">
             <thead>
                 <tr>
                     <th>No</th>
-                    <th class="w-25">Status</th>
                     <th class="w-25">Date</th>
+                    <th class="w-25">Status</th>
                     <th class="w-50">Shipper Name</th>
                     <th class="w-50">Shipper Phone Number</th>
                     <th class="w-25">Receiver Name</th>
                     <th class="w-25">Weight</th>
-                    <th class="w-25">Receiver Phone Number</th>
-                    <th class="w-40">Receiver State</th>
-                    <th class="w-70">Receiver City</th>
-                    <th class="w-25">Receiver Postal Code</th>
-                    <th class="w-25">Receiver Address</th>
-                    <th class="w-25">Service</th>
-                    <th class="w-25">Category</th>
                     <th class="w-25">Updated At</th>
+                    <th class="w-25">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -41,6 +37,7 @@
                 foreach ($shipments as $s): ?>
                     <tr>
                         <td><?= $n++ ?></td>
+                        <td><?= $s['created_at'] ?></td>
                         <td><?php if ($s['status'] == "INBOUND") {
                                 echo '<span class="badge badge-info">INBOUND</span>';
                             } elseif ($s['status'] == "OUTBOUND") {
@@ -55,16 +52,13 @@
                         <td><?= $s['shipper_name'] ?></td>
                         <td><?= $s['shipper_phone_number'] ?></td>
                         <td><?= $s['receiver_name'] ?></td>
-                        <td><?= $s['receiver_phone_number'] ?></td>
-                        <td><?= $s['receiver_state'] ?></td>
-                        <td><?= $s['receiver_city'] ?></td>
-                        <td><?= $s['receiver_postal_code'] ?></td>
-                        <td><?= $s['receiver_address'] ?></td>
-                        <td><?= $s['service'] ?></td>
-                        <td><?= $s['category'] ?></td>
                         <td><?= $s['weight'] ?></td>
-                        <td><?= $s['created_at'] ?></td>
                         <td><?= $s['updated_at'] ?> </td>
+                        <td>
+                            <a href="#" class="btn btn-info btn-sm"><i class="fas fas-fw fa-check" aria-hidden="true"></i></a>
+                            <a href="#" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>
+                            <a href="#" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></a>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>

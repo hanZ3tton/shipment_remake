@@ -1,0 +1,1 @@
+ALTER TABLE `inbound` CHANGE `ibound_weight` `inbound_weight` DECIMAL(10,2) NOT NULL;

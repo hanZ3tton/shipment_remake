@@ -34,8 +34,8 @@
         </a>
         <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-                <a class="collapse-item" href="<?= base_url('app/shipment/index') ?>">All Shipment</a>
-                <a class="collapse-item" href="<?= base_url('app/shipment/sub_inbound') ?>">Inbound</a>
+                <a class="collapse-item" href="<?= base_url('app/shipment') ?>">All Shipment</a>
+                <a class="collapse-item" href="<?= base_url('app/shipment/inbound') ?>">Inbound</a>
                 <a class="collapse-item" href="<?= base_url('app/shipment/order') ?>">Not yet Completed</a>
                 <a class="collapse-item" href="<?= base_url('app/shipment/completed') ?>">Completed</a>
                 <a class="collapse-item" href="<?= base_url('app/shipment/outbound') ?>">Outbound</a>
