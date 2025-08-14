@@ -110,6 +110,7 @@
 
     <!-- Tab Content -->
     <div class="tab-content" id="formTabsContent">
+
         <!-- Form Shipment -->
         <div class="tab-pane fade show active" id="shipment" role="tabpanel">
             <form action="<?= base_url('shipments/save') ?>" method="post" class="needs-validation" novalidate>
@@ -173,56 +174,59 @@
         </div>
 
         <!-- Form Inbound -->
-        <div class="section-title">
-            <i class="fas fa-truck"></i> Informasi Inbound
+        <div class="tab-pane fade" id="inbound" role="tabpanel">
+            <div class="section-title">
+                <i class="fas fa-truck"></i> Informasi Inbound
+            </div>
+
+            <div class="form-row">
+                <input type="text" name="inbound_shipper_name" placeholder="Nama Shipper" readonly>
+                <input type="text" name="inbound_shipper_phone" placeholder="Nomor Telepon" readonly>
+                <input type="number" name="weight" placeholder="Berat" readonly>
+            </div>
+
+            <div class="form-row">
+                <textarea name="description" placeholder="Deskripsi Barang" readonly></textarea>
+            </div>
+
+            <div class="form-row">
+                <input type="text" name="inbound_date" placeholder="Tanggal Inbound"
+                    onfocus="(this.type='date')"
+                    onblur="if(!this.value) this.type='text'"
+                    readonly>
+            </div>
+
+            <div class="form-row">
+                <input type="file" name="inbound_photo" accept="image/*" disabled>
+            </div>
+
+            <div class="form-row">
+                <img id="photo_preview" src="#" alt="Preview Foto" style="max-width: 300px; display: none;">
+            </div>
         </div>
 
-        <div class="form-row">
-            <input type="text" name="inbound_shipper_name" placeholder="Nama Shipper" readonly>
-            <input type="text" name="inbound_shipper_phone" placeholder="Nomor Telepon" readonly>
-            <input type="number" name="weight" placeholder="Berat" readonly>
-        </div>
-
-        <div class="form-row">
-            <textarea name="description" placeholder="Deskripsi Barang" readonly></textarea>
-        </div>
-
-        <div class="form-row">
-            <input type="text" name="inbound_date" placeholder="Tanggal Inbound"
-                onfocus="(this.type='date')"
-                onblur="if(!this.value) this.type='text'"
-                readonly>
-        </div>
-
-        <div class="form-row">
-            <input type="file" name="inbound_photo" accept="image/*" disabled>
-        </div>
-
-        <div class="form-row">
-            <img id="previewImage" src="#" alt="Preview Foto" style="max-width: 300px; display: none;">
-        </div>
-
-        <script>
-            const itemPhotoInput = document.getElementById('item_photo');
-            const photoPreview = document.getElementById('photo_preview');
-
-            itemPhotoInput.addEventListener('change', function() {
-                const file = this.files[0];
-                if (file) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        photoPreview.src = e.target.result;
-                        photoPreview.style.display = 'block';
-                    }
-                    reader.readAsDataURL(file);
-                } else {
-                    photoPreview.src = '';
-                    photoPreview.style.display = 'none';
-                }
-            });
-        </script>
     </div>
 </div>
+
+<script>
+    const itemPhotoInput = document.querySelector('input[name="inbound_photo"]');
+    const photoPreview = document.getElementById('photo_preview');
+
+    itemPhotoInput.addEventListener('change', function() {
+        const file = this.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                photoPreview.src = e.target.result;
+                photoPreview.style.display = 'block';
+            }
+            reader.readAsDataURL(file);
+        } else {
+            photoPreview.src = '';
+            photoPreview.style.display = 'none';
+        }
+    });
+</script>
 
 <!-- Bootstrap CSS & Icons -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
