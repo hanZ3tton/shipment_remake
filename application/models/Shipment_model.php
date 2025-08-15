@@ -40,4 +40,10 @@ class Shipment_model extends CI_Model
     {
         return $this->db->get_where('shipments', ['id' => $id])->row_array();
     }
+
+    // Mengambil semua data pengiriman
+    public function get_all_inbound()
+    {
+        return $this->db->order_by('id', 'DESC')->get('inbound')->result_array();
+    }
 }

@@ -44,7 +44,7 @@ class Shipment extends CI_Controller
 
     public function inbound()
     {
-        $data['shipments'] = $this->Shipment_model->get_all();
+        $data['inbound'] = $this->Shipment_model->get_all_inbound();
         $data['content'] = 'app/shipment/inbound';
         $data['title'] = 'Inbound List';
         $data['style'] = 'app/shipment/index_style';

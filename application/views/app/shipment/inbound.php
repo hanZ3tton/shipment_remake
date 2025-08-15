@@ -27,35 +27,39 @@
                     <th class="">Status</th>
                     <th class="">Shipper Name</th>
                     <th class="">Shipper Phone Number</th>
-                    <th class="">Receiver Name</th>
                     <th class="">Weight</th>
+                    <th class="">Length</th>
+                    <th class="">Width</th>
+                    <th class="">height</th>
                     <th class="">Updated At</th>
                     <th class="">Action</th>
                 </tr>
             </thead>
             <tbody>
                 <?php $n = 1;
-                foreach ($shipments as $s): ?>
+                foreach ($inbound as $row): ?>
                     <tr>
                         <td><?= $n++ ?></td>
-                        <td><?= $s['code'] ?></td>
-                        <td><?= $s['created_at'] ?></td>
-                        <td><?php if ($s['status'] == "INBOUND") {
+                        <td><?= $row['code'] ?></td>
+                        <td><?= $row['created_at'] ?></td>
+                        <td><?php if ($row['status'] == "INBOUND") {
                                 echo '<span class="badge badge-info">INBOUND</span>';
-                            } elseif ($s['status'] == "OUTBOUND") {
+                            } elseif ($row['status'] == "OUTBOUND") {
                                 echo '<span class="badge badge-warning">OUTBOUND</span>';
-                            } elseif ($s['status'] == "AP HOLD") {
+                            } elseif ($row['status'] == "AP HOLD") {
                                 echo '<span class="badge badge-secondary">AP HOLD</span>';
-                            } elseif ($s['status'] == "VOID") {
+                            } elseif ($row['status'] == "VOID") {
                                 echo '<span class="badge badge-danger">VOID</span>';
-                            } elseif ($s['status'] == "COMPLETE DOCS") {
+                            } elseif ($row['status'] == "COMPLETE DOCS") {
                                 echo '<span class="badge badge-success">COMPLETE DOCS</span>';
                             } ?></td>
-                        <td><?= $s['shipper_name'] ?></td>
-                        <td><?= $s['shipper_phone_number'] ?></td>
-                        <td><?= $s['receiver_name'] ?></td>
-                        <td><?= $s['weight'] ?></td>
-                        <td><?= $s['updated_at'] ?> </td>
+                        <td><?= $row['inbound_shipper_name'] ?></td>
+                        <td><?= $row['inbound_shipper_phone'] ?></td>
+                        <td><?= $row['inbound_weight'] ?></td>
+                        <td><?= $row['inbound_length'] ?></td>
+                        <td><?= $row['inbound_width'] ?></td>
+                        <td><?= $row['inbound_height'] ?></td>
+                        <td><?= $row['updated_at'] ?> </td>
                         <td>
                             <a href="#" class="btn btn-info btn-sm"><i class="fas fas-fw fa-check" aria-hidden="true"></i></a>
                             <a href="#" class="btn btn-warning btn-sm"><i class="bi bi-pencil-square"></i></a>
