@@ -21,6 +21,26 @@ class Shipment extends CI_Controller
         $data['style'] = 'app/shipment/index_style';
         $this->load->view('app', $data);
     }
+    public function order()
+    {
+        $data['shipments'] = $this->Shipment_model->get_all();
+
+        // Load view dengan data
+        $data['content'] = 'app/shipment/not_yet_completed';
+        $data['title'] = 'Shipment List';
+        $data['style'] = 'app/shipment/index_style';
+        $this->load->view('app', $data);
+    }
+    public function completed()
+    {
+        $data['shipments'] = $this->Shipment_model->get_all();
+
+        // Load view dengan data
+        $data['content'] = 'app/shipment/completed';
+        $data['title'] = 'Shipment List';
+        $data['style'] = 'app/shipment/index_style';
+        $this->load->view('app', $data);
+    }
 
     public function inbound()
     {
