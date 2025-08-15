@@ -1,6 +1,6 @@
 <div class="container-table">
     <div class="row justify-content-between px-3">
-        <h4 class="mb-4 font-weight-bold">Inbound</h4>
+        <h3 class="mb-4 font-weight-bold">List Inbound</h3>
         <div>
             <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                 <div class="input-group">
@@ -16,20 +16,21 @@
         </div>
     </div>
 
-    <a href="<?= base_url('app/profile/create') ?>" class="button-add font-weight-bold">Add New User</a>
+    <a href="<?= base_url('app/shipment/inbound_c') ?>" class="button-add font-weight-bold">Add New shipment</a>
     <div class="mt-3 table-responsive">
         <table class="table table-striped text-nowrap text-center">
             <thead>
                 <tr>
                     <th>No</th>
-                    <th class="w-25">Date</th>
-                    <th class="w-25">Status</th>
-                    <th class="w-50">Shipper Name</th>
-                    <th class="w-50">Shipper Phone Number</th>
-                    <th class="w-25">Receiver Name</th>
-                    <th class="w-25">Weight</th>
-                    <th class="w-25">Updated At</th>
-                    <th class="w-25">Action</th>
+                    <th class="">Code</th>
+                    <th class="">Date</th>
+                    <th class="">Status</th>
+                    <th class="">Shipper Name</th>
+                    <th class="">Shipper Phone Number</th>
+                    <th class="">Receiver Name</th>
+                    <th class="">Weight</th>
+                    <th class="">Updated At</th>
+                    <th class="">Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -37,6 +38,7 @@
                 foreach ($shipments as $s): ?>
                     <tr>
                         <td><?= $n++ ?></td>
+                        <td><?= $s['code'] ?></td>
                         <td><?= $s['created_at'] ?></td>
                         <td><?php if ($s['status'] == "INBOUND") {
                                 echo '<span class="badge badge-info">INBOUND</span>';
