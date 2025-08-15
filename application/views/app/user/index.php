@@ -5,12 +5,19 @@
         <!-- Profile Name -->
         <div class="container-fluid profile-card">
             <div class="card shadow mb-4">
-                <div class="card-body">
-                    <div class="text-center">
-                        <img class="img-profile rounded-circle" src="<?= base_url('assets/img/profile.jpg') ?>" alt="Profile Image">
-                        <h3 class="mt-3">Hi, <?= $user->full_name; ?></h3>
-                        <p class="text-muted">Your account : <?= $user->user_name; ?></p>
+                <div class="card-body text-center">
+
+                    <!-- Foto profil di tengah -->
+                    <div>
+                        <img class="img-profile mb-2"
+                            style="width: 200px; height: 170px;"
+                            src="<?= base_url('assets/img/Profile/default.png') ?>" alt="Profile image">
                     </div>
+
+                    <!-- Teks tetap center -->
+                    <h3 class="mt-3">Hi, <?= $user->full_name; ?></h3>
+                    <p class="text-muted">Your account : <?= $user->user_name; ?></p>
+
                 </div>
             </div>
         </div>
