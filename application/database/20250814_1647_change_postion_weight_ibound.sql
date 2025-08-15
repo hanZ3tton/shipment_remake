@@ -1,1 +1,0 @@
-CHANGE `weight` `ibound_weight` DECIMAL(10,2) NOT NULL;

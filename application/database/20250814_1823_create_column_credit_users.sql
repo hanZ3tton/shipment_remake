@@ -1,1 +1,0 @@
-ALTER TABLE `users` ADD `credit` INT NOT NULL AFTER `address`;

@@ -1,1 +1,0 @@
-ALTER TABLE `shipments` ADD `code` VARCHAR(128) NOT NULL AFTER `inbound_id`;

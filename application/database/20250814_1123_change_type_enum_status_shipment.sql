@@ -1,1 +1,0 @@
-ALTER TABLE `shipments` CHANGE `status` `status` ENUM("INBOUND", "AP HOLD", "COMPLETE DOCS", "OUTBOUND", "VOID") CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;

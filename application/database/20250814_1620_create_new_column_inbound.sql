@@ -1,1 +1,0 @@
-ALTER TABLE `inbound` ADD `inbound_length` DECIMAL(10,2) NOT NULL AFTER `weight`, ADD `inbound_width` DECIMAL(10,2) NOT NULL AFTER `inbound_length`, ADD `inbound_height` DECIMAL(10,2) NOT NULL AFTER `inbound_width`

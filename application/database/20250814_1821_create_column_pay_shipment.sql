@@ -1,1 +1,0 @@
-ALTER TABLE `shipments` ADD `pay` INT NULL AFTER `service`;

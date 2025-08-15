@@ -1,1 +1,0 @@
-ALTER TABLE `manifests` CHANGE `status` `status` ENUM("ON PROCCESS", "COMPLETE", "VOID") CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL;
