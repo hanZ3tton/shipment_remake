@@ -78,10 +78,14 @@
     }
 
     .image-preview {
-        margin-top: 10px;
-        max-width: 250px;
+        margin-top: 15px;
+        margin-bottom: 20px;
+        /* kasih jarak dengan tombol */
+        max-width: 100%;
+        height: auto;
         border-radius: 8px;
         display: none;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
 </style>
 
@@ -97,10 +101,10 @@
         <div class="form-row">
             <input type="text" name="inbound_shipper_name" placeholder="Nama Shipper" required>
             <input type="text" name="inbound_shipper_phone" placeholder="Nomor Telepon" required>
+            <input type="number" step="0.01" name="weight" placeholder="Berat" required>
         </div>
 
         <div class="form-row">
-            <input type="number" step="0.01" name="weight" placeholder="Berat" required>
             <textarea name="description" placeholder="Deskripsi Barang" required></textarea>
         </div>
 
